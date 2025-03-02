@@ -1,0 +1,44 @@
+services:
+  app:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./app:/app
+      # Anonymous volume for node_modules only
+      - /app/node_modules
+      - ./.env:/app/.env
+    command: >
+      sh -c "npm install && npm run dev"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      # Enhanced polling configuration for Docker
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=1000
+      - NEXT_TELEMETRY_DISABLED=1
+      # Fast Refresh specific settings
+      - FAST_REFRESH=true
+      - NODE_ENV=development
+      # Important for Windows hosts
+      - HOST=0.0.0.0
+    restart: unless-stopped
+  db:
+    image: postgres:14
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "${DB_PORT}:5432"
+volumes:
+  pgdata:
