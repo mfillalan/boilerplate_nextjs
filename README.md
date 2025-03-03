@@ -1,10 +1,22 @@
-# Project Boilerplate
+# NextJS + PostgresSQL Project Boilerplate
 
-This is a boilerplate project using NextJS with TypeScript for the front-end and API, PostgreSQL as the database, and Docker Compose for the development environment.
+This is a boilerplate project using: 
+- [NextJS](https://nextjs.org/) with [TypeScript](https://www.typescriptlang.org/) for the front-end and API 
+- [Shadcn](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/) for the UI library
+- [PostgreSQL](https://www.postgresql.org/) as the database 
+- [Prisma](https://www.prisma.io/) as the ORM 
+- [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) for the development environment
 
 ## Prerequisites
-- Docker and Docker Compose installed
-- NodeJS Installed
+- [Docker](https://www.docker.com/) installed.
+- [Docker Compose](https://docs.docker.com/compose/install/) installed.
+- [NodeJS](https://nodejs.org/) installed.
+- [Git](https://git-scm.com/) installed.
 
 ## Setup
-//TODO: Go through the setup process and document it.
+1. Installed all prerequisite applications.
+2. Clone the repository.
+3. Make sure Docker Engine is running.
+4. Navigate to the folder you cloned the repository in your choise of terminal.
+5. Run the command `docker-compose up --build`
+6. Once the NextJS finishes it should give you a link to access the page.
