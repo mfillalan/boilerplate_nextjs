@@ -14,9 +14,9 @@ This is a boilerplate project using:
 - [Git](https://git-scm.com/) installed.
 
 ## Setup
-1. Installed all prerequisite applications.
+1. Install all prerequisite applications.
 2. Clone the repository.
 3. Make sure Docker Engine is running.
-4. Navigate to the folder you cloned the repository in your choise of terminal.
+4. Navigate to the folder you cloned the repository to in your choice of terminal.
 5. Run the command `docker-compose up --build`
 6. Once the NextJS finishes it should give you a link to access the page.
