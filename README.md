@@ -18,5 +18,7 @@ This is a boilerplate project using:
 2. Clone the repository.
 3. Make sure Docker Engine is running.
 4. Navigate to the folder you cloned the repository to in your choice of terminal.
-5. Run the command `docker-compose up --build`
-6. Once the NextJS finishes it should give you a link to access the page.
+5. Navigate to the app folder and run the command `npm i`
+6. Navigate back to root folder and run the command `docker-compose up --build`
+7. Once the NextJS finishes it should give you a link to access the page.
+8. Happy coding :).
