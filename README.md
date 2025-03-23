@@ -24,9 +24,11 @@ This is a boilerplate project using:
 6. After everything is setup, you can just run the start-project.ps1 file to run the project or use `docker-compose up`
 
 ## Setup
-1. Installed all prerequisite applications.
+1. Install all prerequisite applications.
 2. Clone the repository.
 3. Make sure Docker Engine is running.
-4. Navigate to the folder you cloned the repository in your choise of terminal.
-5. Run the command `docker-compose up`
-6. Once the NextJS finishes it should give you a link to access the page.
+4. Navigate to the folder you cloned the repository to in your choice of terminal.
+5. Navigate to the app folder and run the command `npm i`
+6. Navigate back to root folder and run the command `docker-compose up`
+7. Once the NextJS finishes it should give you a link to access the page.
+8. Happy coding :).
