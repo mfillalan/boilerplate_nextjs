@@ -20,7 +20,10 @@ This is a boilerplate project using:
    - This will install or update Chocolatey, set up Node.js, Git, and Docker Desktop.
    - A new PowerShell window will open to start Docker Desktop (if needed) and run `docker-compose up`.
 4. Restart your system if prompted (required after Docker install).
-5. If Docker fails to start automatically, ensure it’s installed and set the environment variable `DOCKER_DESKTOP_PATH` to its executable location (e.g., `setx DOCKER_DESKTOP_PATH "C:\Path\To\Docker Desktop.exe"`), then run `powershell -File start-docker.ps1` again.
+5. If Docker Engine fails to start or `docker-compose up` errors:
+   - Manually open Docker Desktop, wait for it to fully start (check the system tray).
+   - Run `docker version` to confirm the server (engine) is active.
+   - Then run `powershell -File start-docker.ps1` again.
 6. After everything is setup, you can just run the start-project.ps1 file to run the project or use `docker-compose up`
 
 ## Setup

@@ -39,7 +39,29 @@ Write-Host "Verifying installations..."
 node -v
 git --version
 docker --version
-Write-Host "Setup complete! Starting Docker check..."
+Write-Host "Setup complete! Installing project dependencies..."
 
-# Launch a new PowerShell window to run start-docker.ps1
-Start-Process powershell -ArgumentList "-File start-project.ps1"
+# Change to the app directory and run npm i
+$appDir = Join-Path $PSScriptRoot "app"
+if (Test-Path $appDir) {
+    Write-Host "Navigating to app directory: $appDir"
+    Set-Location $appDir
+    Write-Host "Running 'npm i' to install dependencies..."
+    # Run npm install synchronously using Invoke-Expression and wait for completion
+    try {
+        Invoke-Expression "npm i" -ErrorAction Stop
+        Write-Host "npm install completed successfully."
+    } catch {
+        Write-Host "Error: npm install failed: $_"
+        Write-Host "Please check the app directory for a valid package.json and try running 'npm i' manually."
+        exit 1
+    }
+} else {
+    Write-Host "Error: 'app' directory not found in $PSScriptRoot."
+    Write-Host "Please ensure the 'app' folder exists in the root directory."
+    exit 1
+}
+
+# Launch a new PowerShell window to run start-project.ps1 from the root directory
+Write-Host "Starting project in a new PowerShell window..."
+Start-Process powershell -ArgumentList "-File `"$PSScriptRoot\start-project.ps1`""
